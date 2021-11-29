@@ -27,16 +27,30 @@
 //   const getHoursPercentage = (x) => (x / 24) * 100;
 // });
 var t = 0;
+let serviceBtn = document.getElementById('btn-buy');
+
+serviceBtn.addEventListener('click', function(){
+    serviceBtn.style.display = "none"; 
+})
+
 
 function myFunction() {
     var x = document.getElementById("frm1");
     hr = 0;
-    min = 11;
+    min = 1;
 
     window.t = hr*3600 + min*60;
     window.per = window.t;
     //document.getElementById("demo").innerHTML = hr*3600 + min*60;
     timer();
+    
+    // setTimeout(function(){ 
+    //     serviceBtn.style.display = "block"; 
+    // },min);
+    // setTimeout(function(){ 
+    //     serviceBtn.style.display = "inline"; 
+    // },min + 5);
+    
 }
 function timer(){
     var temp = window.t;
@@ -59,12 +73,13 @@ function timer(){
     if (temp < 0) {
         clearInterval(t);
         document.getElementById("demo").innerHTML = "Service has Ended";
+        serviceBtn.style.display = "block"; 
     }
 }
 function checkTime(i){
     if (i<10) { i = "0" + i }
     return i;
 }
-window.onbeforeunload = function() {
-  return "Dude, are you sure you want to leave? Think of the kittens!";
-}
+// window.onbeforeunload = function() {
+//   return "Dude, are you sure you want to leave? Think of the kittens!";
+// }
